@@ -1,7 +1,6 @@
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import { useEffect } from "react";
 import "react-native-reanimated";
 import { ClerkProvider, ClerkLoaded } from "@clerk/clerk-expo";
 import { tokenCache } from "@/lib/auth";
@@ -28,12 +27,9 @@ export default function RootLayout() {
         );
     }
 
-    useEffect(() => {
-        if (loaded) {
-            SplashScreen.hideAsync();
-        }
-    }, [loaded]);
-
+    // if not all assets are loaded, nothing will get rendered,
+    // therefore it's safe to assume that everything has finished loading in any screen below
+    // then the splash screen can be hidden in any screen below
     if (!loaded) {
         return null;
     }
