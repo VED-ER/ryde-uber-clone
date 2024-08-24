@@ -7,6 +7,7 @@ import OAuth from "@/components/OAuth";
 import { Link, useRouter } from "expo-router";
 import { useSignUp } from "@clerk/clerk-expo";
 import { ReactNativeModal } from "react-native-modal";
+import { fetchAPI } from "@/lib/fetch";
 
 export default function SignUp() {
     const { isLoaded, signUp, setActive } = useSignUp();
@@ -58,6 +59,14 @@ export default function SignUp() {
             if (completeSignUp.status === "complete") {
                 // here clerk user is created
                 // TODO: Create a db user
+                await fetchAPI("/(api)/user", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        name: form.name,
+                        email: form.email,
+                        clerkId: completeSignUp.createdUserId,
+                    }),
+                });
                 await setActive({ session: completeSignUp.createdSessionId });
                 setVerification({ ...verification, state: "success" });
                 // router.replace("/");
