@@ -28,7 +28,7 @@ export default function Welcome() {
     };
 
     return (
-        <SafeAreaView className="flex h-full items-center justify-between bg-white">
+        <SafeAreaView className="flex h-full items-center justify-between bg-white pb-3">
             <TouchableOpacity
                 onPress={onSkipPress}
                 className="ml-auto flex justify-end items-end p-5">
