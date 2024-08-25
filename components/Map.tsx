@@ -73,6 +73,8 @@ export default function Map() {
     }, [userLatitude, userLongitude, destinationLatitude, destinationLongitude]);
 
     useEffect(() => {
+        // TODO: remove fake drivers
+        setDrivers(drivers);
         if (Array.isArray(drivers)) {
             if (!userLatitude || !userLongitude) return;
             const newMarkers = generateMarkersFromData({

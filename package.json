@@ -18,11 +18,13 @@
     "@clerk/clerk-expo": "^2.2.0",
     "@expo/metro-runtime": "~3.2.3",
     "@expo/vector-icons": "^14.0.2",
+    "@gorhom/bottom-sheet": "^4.6.4",
     "@neondatabase/serverless": "^0.9.4",
     "@react-navigation/native": "^6.0.2",
     "expo": "~51.0.28",
     "expo-constants": "~16.0.2",
     "expo-font": "~12.0.9",
+    "expo-image": "~1.12.15",
     "expo-linking": "~6.3.1",
     "expo-location": "^17.0.1",
     "expo-router": "~3.5.23",
@@ -45,8 +47,7 @@
     "react-native-screens": "3.31.1",
     "react-native-swiper": "^1.6.0",
     "react-native-web": "~0.19.10",
-    "zustand": "^4.5.5",
-    "expo-image": "~1.12.15"
+    "zustand": "^4.5.5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
