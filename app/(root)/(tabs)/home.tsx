@@ -2,7 +2,8 @@ import { useUser } from "@clerk/clerk-expo";
 import { useAuth } from "@clerk/clerk-expo";
 import { router } from "expo-router";
 import { useState, useEffect } from "react";
-import { Text, View, TouchableOpacity, Image, FlatList, ActivityIndicator } from "react-native";
+import { Text, View, TouchableOpacity, FlatList, ActivityIndicator } from "react-native";
+import { Image } from "expo-image";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as Location from "expo-location";
 import GoogleTextInput from "@/components/GoogleTextInput";
@@ -134,7 +135,7 @@ export default function Home() {
             latitude: location.coords.latitude,
             longitude: location.coords.longitude,
         });
-        console.log(`${address[0].name}, ${address[0].region}`);
+
         setUserLocation({
             latitude: location.coords.latitude,
             longitude: location.coords.longitude,
@@ -184,7 +185,7 @@ export default function Home() {
                                     source={images.noResult}
                                     className="w-40 h-40"
                                     alt="No recent rides found"
-                                    resizeMode="contain"
+                                    contentFit="contain"
                                 />
                                 <Text className="text-sm">No recent rides found</Text>
                             </>

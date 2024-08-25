@@ -1,4 +1,5 @@
-import { Image, Text, View } from "react-native";
+import { Text, View } from "react-native";
+import { Image } from "expo-image";
 import { icons } from "@/constants";
 import Button from "@/components/Button";
 
@@ -17,7 +18,7 @@ const OAuth = () => {
                 title="Log In with Google"
                 className="mt-5 w-full shadow-none"
                 IconLeft={() => (
-                    <Image source={icons.google} resizeMode="contain" className="w-5 h-5 mx-2" />
+                    <Image source={icons.google} contentFit="contain" className="w-5 h-5 mx-2" />
                 )}
                 bgVariant="outline"
                 textVariant="primary"

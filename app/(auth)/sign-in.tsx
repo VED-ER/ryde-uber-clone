@@ -1,4 +1,5 @@
-import { Alert, Image, ScrollView, Text, View } from "react-native";
+import { Alert, ScrollView, Text, View } from "react-native";
+import { Image } from "expo-image";
 import Button from "@/components/Button";
 import OAuth from "@/components/OAuth";
 import { Link, useRouter } from "expo-router";

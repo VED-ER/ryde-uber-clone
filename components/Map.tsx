@@ -84,7 +84,7 @@ export default function Map() {
             setMarkers(newMarkers);
         }
     }, [drivers, userLatitude, userLongitude]);
-    console.log(markers);
+
     return (
         <View className="w-full h-full rounded-2xl">
             <MapView

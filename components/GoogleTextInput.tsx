@@ -1,4 +1,5 @@
-import { View, Image } from "react-native";
+import { View } from "react-native";
+import { Image } from "expo-image";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
 import { icons } from "@/constants";
@@ -67,7 +68,7 @@ export default function GoogleTextInput({
                         <Image
                             source={icon ? icon : icons.search}
                             className="w-6 h-6"
-                            resizeMode="contain"
+                            contentFit="contain"
                         />
                     </View>
                 )}

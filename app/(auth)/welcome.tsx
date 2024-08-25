@@ -1,5 +1,6 @@
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
+import { Image } from "expo-image";
 import { useRouter } from "expo-router";
 import Swiper from "react-native-swiper";
 import { useRef, useState } from "react";
@@ -45,7 +46,7 @@ export default function Welcome() {
                         <Image
                             source={item.image}
                             className="w-full h-[300px]"
-                            resizeMode={"contain"}
+                            contentFit={"contain"}
                         />
                         <View className="flex flex-row items-center justify-center w-full mt-10">
                             <Text className="text-black text-3xl font-bold mx-10 text-center">

@@ -1,5 +1,5 @@
-import { Image, Text, View } from "react-native";
-
+import { Text, View } from "react-native";
+import { Image } from "expo-image";
 import { icons } from "@/constants";
 import { formatDate, formatTime } from "@/lib/utils";
 import { Ride } from "@/types/type";

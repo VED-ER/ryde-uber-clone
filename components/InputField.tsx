@@ -2,13 +2,12 @@ import {
     TextInput,
     View,
     Text,
-    Image,
     KeyboardAvoidingView,
     TouchableWithoutFeedback,
     Keyboard,
     Platform,
 } from "react-native";
-
+import { Image } from "expo-image";
 import { InputFieldProps } from "@/types/type";
 
 export default function InputField({
