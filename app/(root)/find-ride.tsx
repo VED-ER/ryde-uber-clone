@@ -23,7 +23,7 @@ export default function FindRide() {
                 />
             </View>
             <View className="my-3">
-                <Text className="text-lg font-JakartaSemiBold mb-3">From: </Text>
+                <Text className="text-lg font-JakartaSemiBold mb-3">To: </Text>
                 <GoogleTextInput
                     icon={icons.target}
                     initialLocation={destinationAddress!}
