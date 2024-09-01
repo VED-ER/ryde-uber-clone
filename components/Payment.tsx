@@ -26,10 +26,10 @@ export default function Payment({ fullName, email, amount, driverId, rideTime }:
 
     const initializePaymentSheet = async () => {
         const { error } = await initPaymentSheet({
-            merchantDisplayName: "Example, Inc.",
+            merchantDisplayName: "Uber Clone Inc.",
             intentConfiguration: {
                 mode: {
-                    amount: 1099,
+                    amount: parseFloat(amount) * 100,
                     currencyCode: "USD",
                 },
                 confirmHandler: async (
@@ -65,6 +65,7 @@ export default function Payment({ fullName, email, amount, driverId, rideTime }:
                         });
 
                         if (result.client_secret) {
+                            // creating a ride
                             await fetchAPI("/(api)/ride/create", {
                                 method: "POST",
                                 headers: {

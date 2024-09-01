@@ -2,9 +2,43 @@ import { Text, View } from "react-native";
 import { Image } from "expo-image";
 import { icons } from "@/constants";
 import Button from "@/components/Button";
+import { useCallback } from "react";
+import { useOAuth } from "@clerk/clerk-expo";
+import * as Linking from "expo-linking";
+import { fetchAPI } from "@/lib/fetch";
+import { router } from "expo-router";
 
 const OAuth = () => {
-    const handleGoogleSignIn = async () => {};
+    const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
+
+    const handleGoogleSignIn = useCallback(async () => {
+        try {
+            const { createdSessionId, signIn, signUp, setActive } = await startOAuthFlow({
+                redirectUrl: Linking.createURL("/(root)/(tabs)/home", { scheme: "myapp" }),
+            });
+
+            if (createdSessionId) {
+                if (setActive) {
+                    await setActive({ session: createdSessionId });
+
+                    if (signUp?.createdUserId) {
+                        await fetchAPI("/(api)/user", {
+                            method: "POST",
+                            body: JSON.stringify({
+                                name: `${signUp.firstName} ${signUp.lastName}`,
+                                email: signUp.emailAddress,
+                                clerkId: signUp.createdUserId,
+                            }),
+                        });
+                    }
+                    // redirect URL not working so must redirect manually with router
+                    router.replace("/(root)/(tabs)/home");
+                }
+            }
+        } catch (err) {
+            console.error("OAuth error", err);
+        }
+    }, []);
 
     return (
         <View>
