@@ -1,7 +1,8 @@
 import { Tabs } from "expo-router";
-import { ImageSourcePropType, View } from "react-native";
+import { ImageSourcePropType, Platform, View } from "react-native";
 import { icons } from "@/constants";
 import { Image } from "expo-image";
+import { useKeyboardDidShow } from "@/hooks/useKeyboardDidShow";
 
 const TabIcon = ({ source, focused }: { source: ImageSourcePropType; focused: boolean }) => (
     <View
@@ -14,6 +15,7 @@ const TabIcon = ({ source, focused }: { source: ImageSourcePropType; focused: bo
 );
 
 export default function TabsLayout() {
+    const keyboardShown = useKeyboardDidShow();
     return (
         <Tabs
             initialRouteName={"index"}
@@ -27,7 +29,7 @@ export default function TabsLayout() {
                     paddingBottom: 0,
                     overflow: "hidden",
                     marginHorizontal: 20,
-                    marginBottom: 20,
+                    marginBottom: Platform.OS === "android" && keyboardShown ? -100 : 20,
                     height: 78,
                     display: "flex",
                     justifyContent: "space-between",

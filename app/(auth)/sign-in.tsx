@@ -40,6 +40,7 @@ export default function SignIn() {
         } catch (err: any) {
             console.log("2");
             console.error(JSON.stringify(err, null, 2));
+            Alert.alert("Error", err.errors[0].longMesrsage);
         }
     }, [isLoaded, form.email, form.password]);
 
@@ -61,6 +62,8 @@ export default function SignIn() {
                         textContentType="emailAddress"
                         value={form.email}
                         onChangeText={(value) => setForm({ ...form, email: value })}
+                        keyboardType={"email-address"}
+                        autoCapitalize={"none"}
                     />
 
                     <InputField
@@ -71,6 +74,7 @@ export default function SignIn() {
                         textContentType="password"
                         value={form.password}
                         onChangeText={(value) => setForm({ ...form, password: value })}
+                        autoCapitalize={"none"}
                     />
 
                     <Button title="Sign In" onPress={onSignInPress} className="mt-6" />

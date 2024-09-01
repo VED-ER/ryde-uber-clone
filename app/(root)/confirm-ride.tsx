@@ -5,13 +5,15 @@ import DriverCard from "@/components/DriverCard";
 import RideLayout from "@/components/RideLayout";
 import { useDriverStore } from "@/store";
 import Button from "@/components/Button";
+import { BottomSheetFlatList } from "@gorhom/bottom-sheet";
 
 export default function ConfirmRide() {
     const { drivers, selectedDriver, setSelectedDriver } = useDriverStore();
 
     return (
-        <RideLayout title={"Choose a Rider"} snapPoints={["65%", "85%"]}>
-            <FlatList
+        <RideLayout title={"Choose a Rider"} snapPoints={["65%", "85%"]} customContainer={true}>
+            <BottomSheetFlatList
+                contentContainerStyle={{ padding: 20 }}
                 data={drivers}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item, index }) => (

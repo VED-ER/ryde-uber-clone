@@ -34,6 +34,7 @@ export default function InputField({
                         <TextInput
                             className={`rounded-full p-4 font-JakartaSemiBold text-[15px] flex-1 ${inputStyle} text-left`}
                             secureTextEntry={secureTextEntry}
+                            placeholderTextColor={'#7c7c7c'}
                             {...props}
                         />
                     </View>

@@ -11,12 +11,22 @@ export default function RideLayout({
     title,
     snapPoints,
     children,
+    customContainer = false,
 }: {
     title?: string;
     snapPoints?: string[];
     children: React.ReactNode;
+    customContainer?: boolean;
 }) {
     const bottomSheetRef = useRef<BottomSheet>(null);
+
+    let content;
+
+    if (customContainer) {
+        content = children;
+    } else {
+        content = <BottomSheetView style={{ flex: 1, padding: 20 }}>{children}</BottomSheetView>;
+    }
 
     return (
         <GestureHandlerRootView>
@@ -42,7 +52,7 @@ export default function RideLayout({
                     ref={bottomSheetRef}
                     snapPoints={snapPoints || ["40%", "85%"]}
                     index={0}>
-                    <BottomSheetView style={{ flex: 1, padding: 20 }}>{children}</BottomSheetView>
+                    {content}
                 </BottomSheet>
             </View>
         </GestureHandlerRootView>
