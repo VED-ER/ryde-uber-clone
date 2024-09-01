@@ -1,7 +1,7 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Text, View } from "react-native";
 import { Image } from "expo-image";
-import {  images } from "@/constants";
+import { images } from "@/constants";
 import TabsHeader from "@/components/nav/TabsHeader";
 
 export default function Chat() {
