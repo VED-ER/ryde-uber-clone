@@ -1,4 +1,6 @@
 import * as SecureStore from "expo-secure-store";
+import { useAuth } from "@clerk/clerk-expo";
+import { router } from "expo-router";
 
 export interface TokenCache {
     getToken: (key: string) => Promise<string | undefined | null>;
@@ -29,4 +31,11 @@ export const tokenCache = {
             return;
         }
     },
+};
+
+export const doSignOut = () => {
+    const { signOut } = useAuth();
+
+    signOut();
+    router.replace("/(auth)/sign-in");
 };

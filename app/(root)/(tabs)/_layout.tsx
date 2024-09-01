@@ -3,6 +3,7 @@ import { ImageSourcePropType, Platform, View } from "react-native";
 import { icons } from "@/constants";
 import { Image } from "expo-image";
 import { useKeyboardDidShow } from "@/hooks/useKeyboardDidShow";
+import { useUser } from "@clerk/clerk-expo";
 
 const TabIcon = ({ source, focused }: { source: ImageSourcePropType; focused: boolean }) => (
     <View
@@ -37,12 +38,12 @@ export default function TabsLayout() {
                     flexDirection: "row",
                     position: "absolute",
                 },
+                headerShown: false,
             }}>
             <Tabs.Screen
                 name={"home"}
                 options={{
                     title: "Home",
-                    headerShown: false,
                     tabBarIcon: ({ focused }) => <TabIcon focused={focused} source={icons.home} />,
                 }}
             />
@@ -50,7 +51,6 @@ export default function TabsLayout() {
                 name={"history"}
                 options={{
                     title: "History",
-                    headerShown: false,
                     tabBarIcon: ({ focused }) => <TabIcon focused={focused} source={icons.list} />,
                 }}
             />
@@ -58,7 +58,6 @@ export default function TabsLayout() {
                 name={"chat"}
                 options={{
                     title: "Chat",
-                    headerShown: false,
                     tabBarIcon: ({ focused }) => <TabIcon focused={focused} source={icons.chat} />,
                 }}
             />
@@ -66,7 +65,6 @@ export default function TabsLayout() {
                 name={"profile"}
                 options={{
                     title: "Profile",
-                    headerShown: false,
                     tabBarIcon: ({ focused }) => (
                         <TabIcon focused={focused} source={icons.profile} />
                     ),
