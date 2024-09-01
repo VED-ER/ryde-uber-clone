@@ -32,10 +32,3 @@ export const tokenCache = {
         }
     },
 };
-
-export const doSignOut = () => {
-    const { signOut } = useAuth();
-
-    signOut();
-    router.replace("/(auth)/sign-in");
-};

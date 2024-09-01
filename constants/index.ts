@@ -23,6 +23,7 @@ import selectedMarker from "@/assets/icons/selected-marker.png";
 import star from "@/assets/icons/star.png";
 import target from "@/assets/icons/target.png";
 import to from "@/assets/icons/to.png";
+import imageEdit from "@/assets/icons/image-edit.png";
 import check from "@/assets/images/check.png";
 import getStarted from "@/assets/images/get-started.png";
 import message from "@/assets/images/message.png";
@@ -69,6 +70,7 @@ export const icons = {
     star,
     target,
     to,
+    imageEdit,
 };
 
 export const onboarding = [

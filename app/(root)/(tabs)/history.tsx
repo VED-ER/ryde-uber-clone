@@ -16,7 +16,7 @@ export default function History() {
     const { data: rides, loading, error } = useFetch<Ride[]>(`/(api)/ride/${user?.id}`);
 
     return (
-        <SafeAreaView className="bg-general-500">
+        <SafeAreaView className="bg-general-500 border flex-1">
             <FlatList
                 data={rides}
                 renderItem={({ item }) => <RideCard ride={item} />}
@@ -25,9 +25,10 @@ export default function History() {
                 keyboardShouldPersistTaps="handled"
                 contentContainerStyle={{
                     paddingBottom: 100,
+                    flexGrow: 1,
                 }}
                 ListEmptyComponent={() => (
-                    <View className="flex flex-col items-center justify-center">
+                    <View className="flex flex-1 items-center justify-center">
                         {!loading ? (
                             <>
                                 <Image
