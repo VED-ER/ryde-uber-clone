@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity } from "react-native";
+import { Platform, Text, TouchableOpacity, View } from "react-native";
 import { ButtonProps } from "@/types/type";
 
 const getBgVariantStyle = (variant: ButtonProps["bgVariant"]) => {
@@ -42,13 +42,16 @@ export default function Button({
     ...rest
 }: ButtonProps) {
     return (
-        <TouchableOpacity
-            className={`w-full rounded-full p-3 flex flex-row justify-center items-center shadow-md shadow-neutral-400/70 ${getBgVariantStyle(bgVariant)} ${className}`}
-            onPress={onPress}
-            {...rest}>
-            {IconLeft && <IconLeft />}
-            <Text className={`text-lg font-bold ${getTextVariantStyle(textVariant)}`}>{title}</Text>
-            {IconRight && <IconRight />}
+        <TouchableOpacity onPress={onPress} {...rest}>
+            <View
+                className={`w-full rounded-full p-3 flex flex-row justify-center items-center ${Platform.OS !== "android" ? "shadow-md shadow-neutral-400/70" : ""} ${getBgVariantStyle(bgVariant)} ${className}`}
+                style={{ elevation: bgVariant === "outline" ? 0 : 10 }}>
+                {IconLeft && <IconLeft />}
+                <Text className={`text-lg font-bold ${getTextVariantStyle(textVariant)}`}>
+                    {title}
+                </Text>
+                {IconRight && <IconRight />}
+            </View>
         </TouchableOpacity>
     );
 }

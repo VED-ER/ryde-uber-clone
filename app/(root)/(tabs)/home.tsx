@@ -2,7 +2,7 @@ import { useUser } from "@clerk/clerk-expo";
 import { useAuth } from "@clerk/clerk-expo";
 import { router } from "expo-router";
 import { useState, useEffect } from "react";
-import { Text, View, TouchableOpacity, FlatList, ActivityIndicator } from "react-native";
+import { Text, View, FlatList, ActivityIndicator, Platform } from "react-native";
 import { Image } from "expo-image";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as Location from "expo-location";
@@ -74,10 +74,10 @@ export default function Home() {
                 data={recentRides?.slice(0, 5)}
                 renderItem={({ item }) => <RideCard ride={item} />}
                 keyExtractor={(item, index) => index.toString()}
-                className="px-5"
                 keyboardShouldPersistTaps="handled"
                 contentContainerStyle={{
                     paddingBottom: 100,
+                    paddingHorizontal: 20,
                 }}
                 ListEmptyComponent={() => (
                     <View className="flex flex-col items-center justify-center">
@@ -102,7 +102,7 @@ export default function Home() {
 
                         <GoogleTextInput
                             icon={icons.search}
-                            containerStyle="bg-white shadow-md shadow-neutral-300"
+                            containerStyle={`bg-white ${Platform.OS !== "android" ? "shadow-md shadow-neutral-300" : ""}`}
                             handlePress={handleDestinationPress}
                         />
 

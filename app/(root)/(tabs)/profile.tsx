@@ -108,8 +108,8 @@ export default function Profile() {
                 }}>
                 <TabsHeader title={"Profile"} containerStyle="px-5" />
                 <View
-                    className={`h-28 w-28 rounded-full mx-auto border-2 border-white shadow-md shadow-neutral-400/70`}
-                    style={{ elevation: 4 }}>
+                    className={`h-28 w-28 rounded-full mx-auto border-2 border-white ${Platform.OS !== "android" ? "shadow-lg shadow-neutral-400/70" : ""}`}
+                    style={{ elevation: 10 }}>
                     <Image
                         source={imageSrc}
                         className={`w-full h-full rounded-full ${imageEditLoading ? "opacity-50" : ""}`}
