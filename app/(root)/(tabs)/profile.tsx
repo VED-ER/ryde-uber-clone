@@ -98,8 +98,6 @@ export default function Profile() {
         setBottomSheetInputLabel("Last Name");
     };
 
-    // TODO: update user info on save button press
-
     return (
         <SafeAreaView className="flex flex-1 flex-col items-center bg-general-500">
             <ScrollView
