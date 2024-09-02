@@ -87,6 +87,8 @@ declare interface InputFieldProps extends TextInputProps {
     inputStyle?: string;
     iconStyle?: string;
     className?: string;
+    iconRight?: any;
+    onIconRightPress?: () => void;
 }
 
 declare interface PaymentProps {

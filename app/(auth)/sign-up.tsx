@@ -30,8 +30,17 @@ export default function SignUp() {
             return;
         }
 
+        const [firstName, lastName] = form.name.split(" ");
+
+        if (!firstName || !lastName) {
+            Alert.alert("Error", `Please enter a valid name in format: "John Smith"`);
+            return;
+        }
+
         try {
             await signUp.create({
+                firstName,
+                lastName,
                 emailAddress: form.email,
                 password: form.password,
             });
@@ -95,14 +104,14 @@ export default function SignUp() {
                 <View className="p-5">
                     <InputField
                         label="Name"
-                        placeholder="Enter name"
+                        placeholder="John Smith"
                         icon={icons.person}
                         value={form.name}
                         onChangeText={(value) => setForm({ ...form, name: value })}
                     />
                     <InputField
                         label="Email"
-                        placeholder="Enter email"
+                        placeholder="johnsmith@gmail.com"
                         icon={icons.email}
                         textContentType="emailAddress"
                         value={form.email}
@@ -110,7 +119,7 @@ export default function SignUp() {
                     />
                     <InputField
                         label="Password"
-                        placeholder="Enter password"
+                        placeholder="********"
                         icon={icons.lock}
                         secureTextEntry={true}
                         textContentType="password"
