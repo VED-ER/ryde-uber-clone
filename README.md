@@ -54,7 +54,7 @@
 
 ## Screenshots
 
-Below are some screenshots showcasing the various features of Ryde:
+Below are some screenshots of 15+ screens showcasing the various features of Ryde:
 
 | Home Screen | Booking Screen | Payment Screen |
 |-------------|----------------|----------------|
