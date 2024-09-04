@@ -98,7 +98,7 @@ export default function Home() {
                 )}
                 ListHeaderComponent={
                     <>
-                        <TabsHeader title={`Welcome ${user?.firstName}👋`} />
+                        <TabsHeader title={`Welcome ${user?.firstName} 👋`} />
 
                         <GoogleTextInput
                             icon={icons.search}

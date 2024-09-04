@@ -128,14 +128,16 @@ export default function Payment({ fullName, email, amount, driverId, rideTime }:
                         Please proceed with your trip.
                     </Text>
 
-                    <Button
-                        title="Back Home"
-                        onPress={() => {
-                            setSuccess(false);
-                            router.push("/(root)/(tabs)/home");
-                        }}
-                        className="mt-5"
-                    />
+                    <View>
+                        <Button
+                            title="Back Home"
+                            onPress={() => {
+                                setSuccess(false);
+                                router.push("/(root)/(tabs)/home");
+                            }}
+                            className="mt-5"
+                        />
+                    </View>
                 </View>
             </ReactNativeModal>
         </>
