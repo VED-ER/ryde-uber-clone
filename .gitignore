@@ -12,6 +12,8 @@ web-build/
 
 /.idea
 
+.env
+
 # macOS
 .DS_Store
 
