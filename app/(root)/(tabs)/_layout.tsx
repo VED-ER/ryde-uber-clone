@@ -3,13 +3,12 @@ import { ImageSourcePropType, Platform, View } from "react-native";
 import { icons } from "@/constants";
 import { Image } from "expo-image";
 import { useKeyboardDidShow } from "@/hooks/useKeyboardDidShow";
-import { useUser } from "@clerk/clerk-expo";
 
 const TabIcon = ({ source, focused }: { source: ImageSourcePropType; focused: boolean }) => (
     <View
         className={`flex flex-row justify-center items-center rounded-full ${focused ? "bg-general-300" : ""}`}>
         <View
-            className={`rounded-full w-12 h-12 items-center justify-center ${focused ? "bg-general-400" : ""}`}>
+            className={`rounded-full !w-12 !h-12 items-center justify-center ${focused ? "bg-general-400" : ""}`}>
             <Image source={source} tintColor={"white"} contentFit={"contain"} className="w-7 h-7" />
         </View>
     </View>
@@ -19,7 +18,7 @@ export default function TabsLayout() {
     const keyboardShown = useKeyboardDidShow();
     return (
         <Tabs
-            initialRouteName={"index"}
+            initialRouteName={"home"}
             screenOptions={{
                 tabBarActiveTintColor: "white",
                 tabBarInactiveTintColor: "white",
@@ -28,15 +27,29 @@ export default function TabsLayout() {
                     backgroundColor: "#333333",
                     borderRadius: 50,
                     paddingBottom: 0,
-                    overflow: "hidden",
+                    overflow: "visible",
                     marginHorizontal: 20,
                     marginBottom: Platform.OS === "android" && keyboardShown ? -100 : 20,
                     height: 78,
                     display: "flex",
-                    justifyContent: "space-between",
+                    justifyContent: "center",
                     alignItems: "center",
                     flexDirection: "row",
                     position: "absolute",
+                },
+                tabBarItemStyle: {
+                    height: 48,
+                    alignItems: "center",
+                    display: "flex",
+                    flexDirection: "row",
+                    width: 48,
+                },
+                tabBarIconStyle: {
+                    height: 48,
+                    alignItems: "center",
+                    display: "flex",
+                    flexDirection: "row",
+                    width: 48,
                 },
                 headerShown: false,
             }}>
